@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content">-->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ff6750a4"
@@ -44,126 +38,69 @@
         app:layout_constraintStart_toStartOf="@+id/tvRangeFilterLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvRangeFilterLabel" />
 
+
     <TextView
-        android:id="@+id/tvRatingsLabel"
+        android:id="@+id/tvSortByLabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Ratings:"
+        android:text="Sort By:"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvPriceFilterLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvRangeFilterLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvPriceFilterLabel" />
 
     <CheckBox
-        android:id="@+id/cbLowPrice"
+        android:id="@+id/cbPrice1"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:buttonTint="@color/white"
         android:text="$"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvPriceFilterLabel"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/rgRadius"
         app:layout_constraintTop_toTopOf="@+id/tvPriceFilterLabel" />
 
     <CheckBox
-        android:id="@+id/cbMediumPrice"
+        android:id="@+id/cbPrice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:buttonTint="@color/white"
         android:text="$$"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cbLowPrice"
-        app:layout_constraintStart_toEndOf="@+id/cbLowPrice"
-        app:layout_constraintTop_toTopOf="@+id/cbLowPrice" />
+        app:layout_constraintBottom_toBottomOf="@+id/cbPrice1"
+        app:layout_constraintStart_toEndOf="@+id/cbPrice1"
+        app:layout_constraintTop_toTopOf="@+id/cbPrice1" />
 
     <CheckBox
-        android:id="@+id/cbHighPrice"
+        android:id="@+id/cbPrice3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:buttonTint="@color/white"
         android:text="$$$"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cbMediumPrice"
-        app:layout_constraintStart_toEndOf="@+id/cbMediumPrice"
-        app:layout_constraintTop_toTopOf="@+id/cbMediumPrice" />
+        app:layout_constraintBottom_toBottomOf="@+id/cbPrice2"
+        app:layout_constraintStart_toEndOf="@+id/cbPrice2"
+        app:layout_constraintTop_toTopOf="@+id/cbPrice2" />
 
     <CheckBox
-        android:id="@+id/cb5Star"
+        android:id="@+id/cbPrice4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:buttonTint="@color/white"
-        android:text="5"
+        android:text="$$$$"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tvRatingsLabel"
-        app:layout_constraintStart_toStartOf="@+id/cbLowPrice"
-        app:layout_constraintTop_toTopOf="@+id/tvRatingsLabel" />
+        app:layout_constraintBottom_toBottomOf="@+id/cbPrice3"
+        app:layout_constraintStart_toEndOf="@+id/cbPrice3"
+        app:layout_constraintTop_toTopOf="@+id/cbPrice3" />
 
-    <CheckBox
-        android:id="@+id/cb4Star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:buttonTint="@color/white"
-        android:text="4+"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cb5Star"
-        app:layout_constraintStart_toEndOf="@+id/cb5Star"
-        app:layout_constraintTop_toTopOf="@+id/cb5Star" />
-
-    <CheckBox
-        android:id="@+id/cb3Star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:buttonTint="@color/white"
-        android:text="3+"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cb4Star"
-        app:layout_constraintStart_toEndOf="@+id/cb4Star"
-        app:layout_constraintTop_toTopOf="@+id/cb4Star" />
-
-    <CheckBox
-        android:id="@+id/cb2Star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:buttonTint="@color/white"
-        android:text="2+"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cb3Star"
-        app:layout_constraintStart_toEndOf="@+id/cb3Star"
-        app:layout_constraintTop_toTopOf="@+id/cb3Star" />
-
-    <CheckBox
-        android:id="@+id/cb1Star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:buttonTint="@color/white"
-        android:text="1+"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cb2Star"
-        app:layout_constraintStart_toEndOf="@+id/cb2Star"
-        app:layout_constraintTop_toTopOf="@+id/cb2Star" />
-
-    <CheckBox
-        android:id="@+id/cbLT1Star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:buttonTint="@color/white"
-        android:text="&lt;1"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cb1Star"
-        app:layout_constraintStart_toEndOf="@+id/cb1Star"
-        app:layout_constraintTop_toTopOf="@+id/cb1Star" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/rgRadius"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -173,41 +110,42 @@
         app:layout_constraintTop_toTopOf="@+id/tvRangeFilterLabel">
 
         <RadioButton
-            android:id="@+id/rb0_5mi"
+            android:id="@+id/rb1_0km"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/white"
-            android:text="&lt;0.5mi"
+            android:text="0.62mi"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white" />
+
+
+        <RadioButton
+            android:id="@+id/rb10_0km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white"
+            android:text="6.2mi"
             android:textColor="@color/white"
             app:buttonTint="@color/white" />
 
         <RadioButton
-            android:id="@+id/rb1_0mi"
+            android:id="@+id/rb20_0km"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
             android:buttonTint="@color/white"
-            android:text="&lt;1.0mi"
+            android:text="12.4mi"
             android:textColor="@color/white"
             app:buttonTint="@color/white" />
 
         <RadioButton
-            android:id="@+id/rb1_5mi"
+            android:id="@+id/rb40_0km"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/white"
-            android:text="&lt;1.5mi"
+            android:text="24.86mi"
             android:textColor="@color/white"
             app:buttonTint="@color/white" />
 
-        <RadioButton
-            android:id="@+id/rb2_0mi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/white"
-            android:text="&lt;2.0mi"
-            android:textColor="@color/white"
-            app:buttonTint="@color/white" />
 
     </RadioGroup>
 
@@ -221,7 +159,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/spSortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:spinnerMode="dialog"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSortByLabel2"
+        app:layout_constraintStart_toStartOf="@+id/cbPrice1"
+        app:layout_constraintTop_toTopOf="@+id/tvSortByLabel2" />
+
+    <Button
+        android:id="@+id/btnFilterSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="15dp"
+        android:text="Submit"
+        android:textColor="@color/primary_color"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSortByLabel2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--</LinearLayout>-->

@@ -11,5 +11,11 @@ interface IYelpService {
     fun searchRestaurants(
         @Header("Authorization") authHeader: String,
         @Query("term") searchTerm: String,
-        @Query("location") location: String) : Call<YelpSearchResult>
+        @Query("location") location: String,
+        // Set all or any of them to null to not include them or it in request
+        @Query("price") price1 : String?,
+        @Query("price") price2 : String?,
+        @Query("price") price3 : String?,
+        @Query("price") price4 : String?,
+        @Query("sort_by") sortBy : String) : Call<YelpSearchResult>
 }
