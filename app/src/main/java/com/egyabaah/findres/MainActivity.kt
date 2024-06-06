@@ -186,6 +186,10 @@ class MainActivity : AppCompatActivity() {
         if (!this::yelpService.isInitialized) {
             return
         }
+        if (!isInternetAvailable(this)) {
+            showNoInternetDialog(this)
+            return
+        }
 //        TODO("Replace hardcoded location to increase app functionality")
         yelpService.searchRestaurants(
             "Bearer $API_KEY",
@@ -224,6 +228,40 @@ class MainActivity : AppCompatActivity() {
     private fun hideKeypad(view: View) {
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    private fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+            when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                else -> false
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            val networkInfo = connectivityManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATION")
+            networkInfo.isConnected
+        }
+    }
+
+    private fun showNoInternetDialog(context: Context) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(context.getString(R.string.no_internet_connection_title))
+        builder.setMessage(context.getString(R.string.no_internet_connection_alert_message))
+        builder.setPositiveButton(context.getString(R.string.no_internet_connection_alert_button_text)) { dialog, _ ->
+            dialog.dismiss()
+            // Retry searching for restaurants again when dialog dismisses
+            searchForRestaurants()
+        }
+        builder.setCancelable(false)
+        builder.show()
     }
 
 
